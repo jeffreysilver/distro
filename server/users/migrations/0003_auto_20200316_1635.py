@@ -6,16 +6,14 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('users', '0002_group_groupmembership'),
+        ("users", "0002_group_groupmembership"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='user',
-            name='groups',
-            field=models.ManyToManyField(to='users.Group'),
+            model_name="user",
+            name="groups",
+            field=models.ManyToManyField(to="users.Group"),
         ),
-        migrations.DeleteModel(
-            name='GroupMembership',
-        ),
+        migrations.DeleteModel(name="GroupMembership",),
     ]

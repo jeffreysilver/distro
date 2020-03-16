@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('users', '0003_auto_20200316_1635'),
+        ("users", "0003_auto_20200316_1635"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='user',
-            name='groups',
-            field=models.ManyToManyField(blank=True, to='users.Group'),
+            model_name="user",
+            name="groups",
+            field=models.ManyToManyField(blank=True, to="users.Group"),
         ),
     ]

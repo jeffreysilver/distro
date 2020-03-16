@@ -1,10 +1,14 @@
-from ariadne import QueryType, gql, make_executable_schema, load_schema_from_path, ObjectType, MutationType
-from ariadne.asgi import GraphQL
+from ariadne import (
+    QueryType,
+    ObjectType,
+    MutationType,
+)
 
 from users.models import User, Group
 
 
 query = QueryType()
+
 
 @query.field("users")
 def resolve_users(*args):
@@ -12,22 +16,24 @@ def resolve_users(*args):
 
 
 mutation = MutationType()
+
+
 @mutation.field("createGroup")
 def resolve_create_group(_, info, input):
     group = Group.objects.create(name=input["name"])
-    return {
-        "group": group,
-        "error": None
-    }
+    return {"group": group, "error": None}
+
 
 user = ObjectType("User")
-    
+
+
 @user.field("groups")
 def resolve_groups_for_user(user, *args):
     return user.groups.all()
 
 
 group = ObjectType("Group")
+
 
 @query.field("groups")
 def resolve_groups(*args):
@@ -37,5 +43,6 @@ def resolve_groups(*args):
 @group.field("users")
 def resolve_users_for_group(group, *args):
     return group.user_set.all()
+
 
 resolvers = [query, mutation, user, group]
