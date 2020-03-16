@@ -27,4 +27,4 @@ jobs:
         flake8 .
 
     with:
-      python-version: 3.6
+      python-version: '3.6'
