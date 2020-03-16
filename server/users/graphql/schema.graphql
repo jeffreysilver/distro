@@ -1,0 +1,14 @@
+type Query {
+    users: [User!]!
+    groups: [Group!]!
+}
+
+type User {
+    name: String!
+    groups: [Group!]!
+}
+
+type Group {
+    name: String!
+    users: [User!]!
+}
