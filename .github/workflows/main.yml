@@ -25,3 +25,6 @@ jobs:
         cd server
         pip install -r requirements.txt
         flake8 .
+
+      with:
+          python-version: 3.6
