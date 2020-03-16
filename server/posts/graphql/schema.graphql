@@ -1,0 +1,25 @@
+
+
+extend type Mutation {
+    createPost(input: PostInput!): PostPayload!
+}
+ 
+extend type Group {
+    posts: [Post!]!
+}
+
+type Post {
+    link: String!
+    author: User!
+    Group: Group!
+}
+
+type PostPayload {
+    error: Error
+    post: Post
+}
+
+input PostInput {
+    groupId: Int!
+    link: String!
+}

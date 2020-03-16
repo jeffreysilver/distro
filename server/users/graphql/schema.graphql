@@ -3,6 +3,10 @@ type Query {
     groups: [Group!]!
 }
 
+type Mutation {
+    createGroup(input: GroupInput!): GroupPayload!
+}
+
 type User {
     name: String!
     groups: [Group!]!
@@ -11,4 +15,13 @@ type User {
 type Group {
     name: String!
     users: [User!]!
+}
+
+type GroupPayload {
+    error: Error
+    group: Group
+}
+
+input GroupInput {
+    name: String!
 }
