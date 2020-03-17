@@ -9,22 +9,42 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('users', '0004_auto_20200316_1640'),
+        ("users", "0004_auto_20200316_1640"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Post',
+            name="Post",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('link', models.URLField()),
-                ('group', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='posts', to='users.Group')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='posts', to='users.User')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                ("link", models.URLField()),
+                (
+                    "group",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="posts",
+                        to="users.Group",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="posts",
+                        to="users.User",
+                    ),
+                ),
             ],
-            options={
-                'abstract': False,
-            },
+            options={"abstract": False,},
         ),
     ]

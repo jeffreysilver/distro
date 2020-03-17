@@ -1,5 +1,4 @@
-from ariadne import QueryType, gql, make_executable_schema, load_schema_from_path
-from ariadne.asgi import GraphQL
+from ariadne import QueryType, make_executable_schema, load_schema_from_path
 
 from users.graphql.resolvers import resolvers as users_resolvers
 from posts.graphql.resolvers import resolvers as posts_resolvers
